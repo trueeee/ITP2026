@@ -177,7 +177,8 @@ def _factor_map(db: Session) -> dict:
 
 
 @app.get("/ui/activities", response_class=HTMLResponse)
-def ui_activities(request: Request, filter_user_id: int | None = Query(default=None), db: Session = Depends(get_session)):
+def ui_activities(request: Request, filter_user_id: str | None = Query(default=None), db: Session = Depends(get_session)):
+    filter_user_id = int(filter_user_id) if filter_user_id else None
     users = db.execute(select(User)).scalars().all()
     stmt = select(Activity)
     if filter_user_id is not None:
