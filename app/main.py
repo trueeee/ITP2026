@@ -11,7 +11,7 @@ from sqlalchemy.orm import Session
 
 from .db import get_session
 from .models import Activity, EmissionFactor, User
-from .schemas import ActivityOut, UserCreate, UserOut, WeeklyReportOut
+from .schemas import ActivityCreate, ActivityOut, UserCreate, UserOut, WeeklyReportOut
 
 app = FastAPI(title="Hållbarhetskollen")
 app.mount("/static", StaticFiles(directory="static"), name="static")
@@ -41,10 +41,48 @@ def health() -> dict:
 def list_users(db: Session = Depends(get_session)) -> list[User]:
     return list(db.execute(select(User)).scalars().all())
 
+@app.post("/users", response_model=UserOut)
+def create_user(user: UserCreate, db: Session = Depends(get_session)):
+    db_user = User(name=user.name)
+    db.add(db_user)
+    db.commit()
+    db.refresh(db_user)
+    return db_user
 
 @app.get("/emission-factors")
 def list_factors(db: Session = Depends(get_session)):
     return list(db.execute(select(EmissionFactor)).scalars().all())
+
+
+@app.post("/activities", response_model=ActivityOut)
+def create_activity(
+    payload: ActivityCreate,
+    db: Session = Depends(get_session),
+):
+    user = db.get(User, payload.user_id)
+    if not user:
+        raise HTTPException(status_code=404, detail="user not found")
+    if payload.amount <= 0:
+        raise HTTPException(status_code=422, detail="amount must be > 0")
+    activity = Activity(
+        user_id=payload.user_id,
+        category=payload.category,
+        key=payload.key,
+        amount=payload.amount,
+        date=payload.date,
+    )
+    db.add(activity)
+    db.commit()
+    db.refresh(activity)
+    return ActivityOut(
+        id=activity.id,
+        user_id=activity.user_id,
+        category=activity.category,
+        key=activity.key,
+        amount=activity.amount,
+        date=activity.date,
+        co2e=_co2e(activity.category, activity.key, activity.amount, db),
+    )
 
 
 @app.get("/activities", response_model=list[ActivityOut])
