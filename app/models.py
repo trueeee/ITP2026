@@ -3,12 +3,12 @@ from __future__ import annotations
 import datetime as dt
 from typing import Optional
 
-from sqlalchemy import Date, Float, ForeignKey, Integer, String, UniqueConstraint
+from sqlalchemy import Date, Float, ForeignKey, Integer, String, UniqueConstraint, Column
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
+from app.db import Base
 
 
-class Base(DeclarativeBase):
-    pass
+
 
 
 class User(Base):
@@ -25,7 +25,7 @@ class EmissionFactor(Base):
 
     __tablename__ = "emission_factors"
     __table_args__ = (
-        UniqueConstraint("category", "key", "unit", name="uq_factor_category_key_unit"),
+        UniqueConstraint("category", "key", "unit","scope", name="uq_factor_category_key_unit"),
     )
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
@@ -34,6 +34,8 @@ class EmissionFactor(Base):
     unit: Mapped[str] = mapped_column(String(20), nullable=False)      # km/portion/kwh
     co2e_per_unit: Mapped[float] = mapped_column(Float, nullable=False)
     source: Mapped[Optional[str]] = mapped_column(String(200), nullable=True)
+    source = Column(String, nullable=False, default="course_default")
+    scope: Mapped[Optional[str]] = mapped_column(String(20), nullable=True, default=None)
 
 
 class Activity(Base):

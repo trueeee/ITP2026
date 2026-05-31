@@ -33,7 +33,7 @@ def upsert_factor(db: Session, category: str, key: str, unit: str, co2e_per_unit
                 source=source,
             )
         )
-
+        
 
 def main() -> None:
     if not DATA_PATH.exists():
@@ -49,9 +49,16 @@ def main() -> None:
                 key = row["key"].strip()
                 unit = row["unit"].strip()
                 co2e_per_unit = float(row["co2e_per_unit"])
-                source = (row.get("source") or "").strip() or None
+                source = (row.get("source") or "").strip() or "course_default"
                 upsert_factor(db, category, key, unit, co2e_per_unit, source)
                 count += 1
+                
+                # EXCEPT
+                required = ["category", "key", "unit", "co2e_per_unit"]
+                if any(not (row.get(k) or "").strip() for k in required):
+                  print(f"[WARN] Skipping row: {row}")
+                  continue
+                
 
         db.commit()
         print(f"✅ Import klar: {count} emissionsfaktorer.")

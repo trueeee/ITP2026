@@ -1,0 +1,281 @@
+
+ Ansys Mechanical Enterprise                       
+
+
+ *------------------------------------------------------------------*
+ |                                                                  |
+ |   W E L C O M E   T O   T H E   A N S Y S (R)  P R O G R A M     |
+ |                                                                  |
+ *------------------------------------------------------------------*
+
+
+
+
+ ***************************************************************
+ *         ANSYS MAPDL 2025 R1.02       LEGAL NOTICES          *
+ ***************************************************************
+ *                                                             *
+ * Copyright 1971-2025 Ansys, Inc.  All rights reserved.       *
+ * Unauthorized use, distribution or duplication is            *
+ * prohibited.                                                 *
+ *                                                             *
+ * Ansys is a registered trademark of Ansys, Inc. or its       *
+ * subsidiaries in the United States or other countries.       *
+ * See the Ansys, Inc. online documentation or the Ansys, Inc. *
+ * documentation CD or online help for the complete Legal      *
+ * Notice.                                                     *
+ *                                                             *
+ ***************************************************************
+ *                                                             *
+ * THIS ANSYS SOFTWARE PRODUCT AND PROGRAM DOCUMENTATION       *
+ * INCLUDE TRADE SECRETS AND CONFIDENTIAL AND PROPRIETARY      *
+ * PRODUCTS OF ANSYS, INC., ITS SUBSIDIARIES, OR LICENSORS.    *
+ * The software products and documentation are furnished by    *
+ * Ansys, Inc. or its subsidiaries under a software license    *
+ * agreement that contains provisions concerning               *
+ * non-disclosure, copying, length and nature of use,          *
+ * compliance with exporting laws, warranties, disclaimers,    *
+ * limitations of liability, and remedies, and other           *
+ * provisions.  The software products and documentation may be *
+ * used, disclosed, transferred, or copied only in accordance  *
+ * with the terms and conditions of that software license      *
+ * agreement.                                                  *
+ *                                                             *
+ * Ansys, Inc. is a UL registered                              *
+ * ISO 9001:2015 company.                                      *
+ *                                                             *
+ ***************************************************************
+ *                                                             *
+ * This product is subject to U.S. laws governing export and   *
+ * re-export.                                                  *
+ *                                                             *
+ * For U.S. Government users, except as specifically granted   *
+ * by the Ansys, Inc. software license agreement, the use,     *
+ * duplication, or disclosure by the United States Government  *
+ * is subject to restrictions stated in the Ansys, Inc.        *
+ * software license agreement and FAR 12.212 (for non-DOD      *
+ * licenses).                                                  *
+ *                                                             *
+ ***************************************************************
+
+
+
+ *------------------------------------------------------------------*
+ |                    Ansys Product Improvement                     |
+ |                                                                  |
+ |   Ansys Product Improvement Program helps improve Ansys          |
+ |   products. Participating in this program is like filling out a  |
+ |   survey. Without interrupting your work, the software reports   |
+ |   anonymous usage information such as errors, machine and        |
+ |   solver statistics, features used, etc. to Ansys. We never      |
+ |   use the data to identify or contact you.                       |
+ |   The data does NOT contain:                                     |
+ |   - Any personally identifiable information including names,     |
+ |     IP addresses, file names, part names, etc.                   |
+ |   - Any information about your geometry or design specific       |
+ |     inputs.                                                      |
+ |   You can stop participation at any time. To change your         |
+ |   selection go to Help >> Ansys Product Improvement Program      |
+ |   in the GUI.                                                    |
+ |   For more information about the Ansys Privacy Policy, please    |
+ |   check: http://www.ansys.com/privacy                            |
+ |                                                                  |
+ *------------------------------------------------------------------*
+
+
+ 2025 R1.02  
+     
+ Point Releases and Patches installed:   
+     
+ Ansys Service Pack 2025 R1.01   
+ Ansys Service Pack 2025 R1.02   
+ Ansys Service Pack 2025 R1.03   
+ Ansys, Inc. License Manager 2025 R1 
+ Ansys, Inc. License Manager 2025 R1.01  
+ Ansys, Inc. License Manager 2025 R1.02  
+ Ansys, Inc. License Manager 2025 R1.03  
+ Viewer 2025 R1  
+ Viewer 2025 R1.01   
+ Viewer 2025 R1.02   
+ Viewer 2025 R1.03   
+ Discovery (reduced install) 2025 R1 
+ Discovery (reduced install) 2025 R1.01  
+ Discovery (reduced install) 2025 R1.02  
+ Discovery (reduced install) 2025 R1.03  
+ Core WB Files 2025 R1   
+ Core WB Files 2025 R1.01
+ Core WB Files 2025 R1.02
+ Core WB Files 2025 R1.03
+ Ansys Dynamic Reporting 2025 R1 
+ Ansys Dynamic Reporting 2025 R1.01  
+ Ansys Dynamic Reporting 2025 R1.02  
+ Ansys Dynamic Reporting 2025 R1.03  
+ BladeModeler 2025 R1
+ BladeModeler 2025 R1.01 
+ BladeModeler 2025 R1.02 
+ BladeModeler 2025 R1.03 
+ CFD-Post only 2025 R1   
+ CFD-Post only 2025 R1.01
+ CFD-Post only 2025 R1.02
+ CFD-Post only 2025 R1.03
+ CFX (includes CFD-Post) 2025 R1 
+ CFX (includes CFD-Post) 2025 R1.01  
+ CFX (includes CFD-Post) 2025 R1.02  
+ CFX (includes CFD-Post) 2025 R1.03  
+ Chemkin 2025 R1 
+ Chemkin 2025 R1.01  
+ Chemkin 2025 R1.02  
+ Chemkin 2025 R1.03  
+ EnSight 2025 R1 
+ EnSight 2025 R1.01  
+ EnSight 2025 R1.02  
+ EnSight 2025 R1.03  
+ FENSAP-ICE 2025 R1  
+ FENSAP-ICE 2025 R1.01   
+ FENSAP-ICE 2025 R1.02   
+ FENSAP-ICE 2025 R1.03   
+ Fluent (includes CFD-Post) 2025 R1  
+ Fluent (includes CFD-Post) 2025 R1.01   
+ Fluent (includes CFD-Post) 2025 R1.02   
+ Fluent (includes CFD-Post) 2025 R1.03   
+ Polyflow (includes CFD-Post) 2025 R1
+ Polyflow (includes CFD-Post) 2025 R1.01 
+ Polyflow (includes CFD-Post) 2025 R1.02 
+ Polyflow (includes CFD-Post) 2025 R1.03 
+ Forte (includes EnSight) 2025 R1
+ Forte (includes EnSight) 2025 R1.01 
+ Forte (includes EnSight) 2025 R1.02 
+ Forte (includes EnSight) 2025 R1.03 
+ ICEM CFD 2025 R1
+ ICEM CFD 2025 R1.01 
+ ICEM CFD 2025 R1.02 
+ ICEM CFD 2025 R1.03 
+ TurboGrid 2025 R1   
+ TurboGrid 2025 R1.01
+ TurboGrid 2025 R1.02
+ TurboGrid 2025 R1.03
+ Catia, Version 4 Geometry Interface 2025 R1 
+ Catia, Version 4 Geometry Interface 2025 R1.01  
+ Catia, Version 4 Geometry Interface 2025 R1.02  
+ Catia, Version 4 Geometry Interface 2025 R1.03  
+ Catia, Version 5 Geometry Interface 2025 R1 
+ Catia, Version 5 Geometry Interface 2025 R1.01  
+ Catia, Version 5 Geometry Interface 2025 R1.02  
+ Catia, Version 5 Geometry Interface 2025 R1.03  
+ Catia, Version 6 Geometry Interface 2025 R1 
+ Catia, Version 6 Geometry Interface 2025 R1.01  
+ Catia, Version 6 Geometry Interface 2025 R1.02  
+ Catia, Version 6 Geometry Interface 2025 R1.03  
+ Creo Parametric Geometry Interface 2025 R1  
+ Creo Parametric Geometry Interface 2025 R1.01   
+ Creo Parametric Geometry Interface 2025 R1.02   
+ Creo Parametric Geometry Interface 2025 R1.03   
+ Inventor Geometry Interface 2025 R1 
+ Inventor Geometry Interface 2025 R1.01  
+ Inventor Geometry Interface 2025 R1.02  
+ Inventor Geometry Interface 2025 R1.03  
+ JTOpen Geometry Interface 2025 R1   
+ JTOpen Geometry Interface 2025 R1.01
+ JTOpen Geometry Interface 2025 R1.02
+ JTOpen Geometry Interface 2025 R1.03
+ NX Geometry Interface 2025 R1   
+ NX Geometry Interface 2025 R1.01
+ NX Geometry Interface 2025 R1.02
+ NX Geometry Interface 2025 R1.03
+ SOLIDWORKS Geometry Interface 2025 R1   
+ SOLIDWORKS Geometry Interface 2025 R1.01
+ SOLIDWORKS Geometry Interface 2025 R1.02
+ SOLIDWORKS Geometry Interface 2025 R1.03
+ ACIS Geometry Interface 2025 R1 
+ ACIS Geometry Interface 2025 R1.01  
+ ACIS Geometry Interface 2025 R1.02  
+ ACIS Geometry Interface 2025 R1.03  
+ AutoCAD Geometry Interface 2025 R1  
+ AutoCAD Geometry Interface 2025 R1.01   
+ AutoCAD Geometry Interface 2025 R1.02   
+ AutoCAD Geometry Interface 2025 R1.03   
+ Creo Elements/Direct Modeling Geometry Interface 2025 R1
+ Creo Elements/Direct Modeling Geometry Interface 2025 R1.01 
+ Creo Elements/Direct Modeling Geometry Interface 2025 R1.02 
+ Creo Elements/Direct Modeling Geometry Interface 2025 R1.03 
+ Parasolid Geometry Interface  2025 R1   
+ Parasolid Geometry Interface  2025 R1.01
+ Parasolid Geometry Interface  2025 R1.02
+ Parasolid Geometry Interface  2025 R1.03
+ Solid Edge Geometry Interface 2025 R1   
+ Solid Edge Geometry Interface 2025 R1.01
+ Solid Edge Geometry Interface 2025 R1.02
+ Solid Edge Geometry Interface 2025 R1.03
+ Remote Solve Manager Standalone Services 2025 R1
+ Remote Solve Manager Standalone Services 2025 R1.01 
+ Remote Solve Manager Standalone Services 2025 R1.02 
+ Remote Solve Manager Standalone Services 2025 R1.03 
+ Additive 2025 R1
+ Additive 2025 R1.01 
+ Additive 2025 R1.02 
+ Additive 2025 R1.03 
+ Aqwa 2025 R1
+ Aqwa 2025 R1.01 
+ Aqwa 2025 R1.02 
+ Aqwa 2025 R1.03 
+ Autodyn 2025 R1 
+ Autodyn 2025 R1.01  
+ Autodyn 2025 R1.02  
+ Autodyn 2025 R1.03  
+ Customization Files for User Programmable Features 2025 R1  
+ Customization Files for User Programmable Features 2025 R1.01   
+ Customization Files for User Programmable Features 2025 R1.02   
+ Customization Files for User Programmable Features 2025 R1.03   
+ LS-DYNA 2025 R1 
+ LS-DYNA 2025 R1.01  
+ LS-DYNA 2025 R1.02  
+ LS-DYNA 2025 R1.03  
+ Material Calibration App 2025 R1
+ Material Calibration App 2025 R1.01 
+ Material Calibration App 2025 R1.02 
+ Material Calibration App 2025 R1.03 
+ Material Designer 2025 R1   
+ Material Designer 2025 R1.01
+ Material Designer 2025 R1.02
+ Material Designer 2025 R1.03
+ Mechanical Products 2025 R1 
+ Mechanical Products 2025 R1.01  
+ Mechanical Products 2025 R1.02  
+ Mechanical Products 2025 R1.03  
+ Motion 2025 R1  
+ Motion 2025 R1.01   
+ Motion 2025 R1.02   
+ Motion 2025 R1.03   
+ Sherlock 2025 R1
+ Sherlock 2025 R1.01 
+ Sherlock 2025 R1.02 
+ Sherlock 2025 R1.03 
+ Sound - SAS 2025 R1 
+ Sound - SAS 2025 R1.01  
+ Sound - SAS 2025 R1.02  
+ Sound - SAS 2025 R1.03  
+
+
+          *****  MAPDL COMMAND LINE ARGUMENTS  *****
+  INITIAL JOBNAME              = app                                                                                                                                                                                                                                                     
+  DISTRIBUTED MEMORY PARALLEL REQUESTED
+       4 PARALLEL PROCESSES REQUESTED WITH SINGLE THREAD PER PROCESS
+    TOTAL OF     4 CORES REQUESTED
+  MPI OPTION                   = INTELMPI
+  START-UP FILE MODE           = NOREAD
+  STOP FILE MODE               = NOREAD
+  MODEL FILE NAME              = H:\Kurser\Projektmetodik\ITP2026\app.db                                                                                                                                                                                                                             
+  GRAPHICS DEVICE REQUESTED    = win32   
+  GRAPHICAL ENTRY              = YES   
+  LANGUAGE                     = en-us               
+  INITIAL DIRECTORY = H:\Kurser\Projektmetodik\ITP2026
+
+ RELEASE= 2025 R1.02           BUILD= 25.1      UP20250123   VERSION=WINDOWS x64 
+ CURRENT JOBNAME=app2  09:30:03  APR 27, 2026 CP=      0.094
+
+
+ RESUME ANSYS DATA FROM FILE NAME=H:\Kurser\Projektmetodik\ITP2026\app.db                                                                                                                                                                                                                             
+
+ *** ERROR ***                           CP =       0.375   TIME= 09:30:04
+ Data file H:\Kurser\Projektmetodik\ITP2026\app.db has incorrect format, 
+ is missing READ/WRITE permission, or is empty for RESUME.               

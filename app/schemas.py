@@ -14,7 +14,7 @@ class UserOut(BaseModel):
     id: int
     name: str
 
-    class Config:
+    class ConfigDict:
         from_attributes = True
 
 
@@ -35,7 +35,7 @@ class ActivityOut(BaseModel):
     date: dt.date
     co2e: Optional[float] = None
 
-    class Config:
+    class ConfigDict:
         from_attributes = True
 
 
@@ -46,8 +46,9 @@ class EmissionFactorOut(BaseModel):
     unit: str
     co2e_per_unit: float
     source: Optional[str] = None
+    scope: str
 
-    class Config:
+    class ConfigDict:
         from_attributes = True
 
 

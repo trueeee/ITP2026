@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block title %}Aktiviteter{% endblock %}
+
+{% block content %}
+<h1>Logga aktivitet</h1>
+
+{% if message %}
+<p class="msg-ok">{{ message }}</p>
+{% endif %}
+
+{% if error %}
+<p class="msg-error">{{ error }}</p>
+{% endif %}
+
+<h2>Ny aktivitet</h2>
+
+<form method="post" action="/ui/activities">
+    <label for="user_id">Användare</label>
+    <select name="user_id" id="user_id" required>
+        <option value="">-- Välj användare --</option>
+        {% for u in users %}
+        <option value="{{ u.id }}" {% if selected_user_id == u.id %}selected{% endif %}>
+            {{ u.name }}
+        </option>
+        {% endfor %}
+    </select>
+
+    <label for="category">Kategori</label>
+    <input type="text" name="category" id="category" placeholder="t.ex. travel" required>
+
+    <label for="key">Nyckel</label>
+    <input type="text" name="key" id="key" placeholder="t.ex. car" required>
+
+    <label for="amount">Mängd</label>
+    <input type="number" name="amount" id="amount" step="0.01" min="0.01" placeholder="t.ex. 10.5" required>
+
+    <label for="date">Datum</label>
+    <input type="date" name="date" id="date" required>
+
+    <button type="submit">Spara aktivitet</button>
+</form>
+
+<h2>Aktiviteter{% if selected_user_id %} för vald användare{% endif %}</h2>
+
+{% if activities %}
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Användare</th>
+            <th>Kategori</th>
+            <th>Nyckel</th>
+            <th>Mängd</th>
+            <th>Datum</th>
+            <th>CO₂e (kg)</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for a in activities %}
+        <tr>
+            <td>{{ a.id }}</td>
+            <td>{{ a.user_id }}</td>
+            <td>{{ a.category }}</td>
+            <td>{{ a.key }}</td>
+            <td>{{ a.amount }}</td>
+            <td>{{ a.date }}</td>
+            <td>{% if a.co2e is not none %}{{ "%.2f"|format(a.co2e) }}{% else %}–{% endif %}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>Inga aktiviteter att visa.</p>
+{% endif %}
+
+{% endblock %}

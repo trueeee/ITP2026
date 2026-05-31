@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Hållbarhetskollen{% endblock %}</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+
+<nav>
+    <div class="nav-brand">Hållbarhetskollen</div>
+    <ul class="nav-links">
+        <li><a href="/ui">Start</a></li>
+        <li><a href="/ui/users">Användare</a></li>
+        <li><a href="/ui/activities">Aktiviteter</a></li>
+        <li><a href="/ui/reports/weekly">Veckorapport</a></li>
+    </ul>
+</nav>
+
+<main class="container">
+    {% block content %}{% endblock %}
+</main>
+
+</body>
+</html>
