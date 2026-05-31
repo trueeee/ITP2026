@@ -111,4 +111,4 @@ Minimikrav (för att uppfylla projektbeskrivningen):
 - “Vi testar sen” → tester från dag 1.
 - Otydliga acceptanskriterier → skriv dem innan ni kodar.
 
-Lycka till!
+Lycka till!"# Projektmetodik_proj" 
