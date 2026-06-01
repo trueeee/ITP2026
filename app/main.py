@@ -30,8 +30,6 @@ def _co2e(category: str, key: str, amount: float, db: Session) -> float | None:
     return round(factor.co2e_per_unit * amount, 4)
 
 
-# ── API ────────────────────────────────────────────────────────────────────────
-
 @app.get("/health")
 def health() -> dict:
     return {"status": "ok"}
@@ -40,6 +38,14 @@ def health() -> dict:
 @app.get("/users", response_model=list[UserOut])
 def list_users(db: Session = Depends(get_session)) -> list[User]:
     return list(db.execute(select(User)).scalars().all())
+
+@app.post("/users", response_model=UserOut)
+def create_user(user: UserCreate, db: Session = Depends(get_session)):
+    db_user = User(name=user.name)
+    db.add(db_user)
+    db.commit()
+    db.refresh(db_user)
+    return db_user
 
 @app.post("/users", response_model=UserOut)
 def create_user(user: UserCreate, db: Session = Depends(get_session)):
@@ -126,8 +132,6 @@ def weekly_report(
     )
     return WeeklyReportOut(user_id=user_id, week_start=week_start, week_end=end, total_co2e=total)
 
-
-# ── UI ─────────────────────────────────────────────────────────────────────────
 
 @app.get("/ui", response_class=HTMLResponse)
 def ui_home(request: Request):
@@ -266,10 +270,13 @@ def ui_weekly_report(
                 .where(Activity.date >= start)
                 .where(Activity.date <= end)
             ).scalars().all()
-            total = sum(
-                c for a in activities
-                if (c := _co2e(a.category, a.key, a.amount, db)) is not None
-            )
+            
+            total = 0
+            
+            for a in activities:
+                co2_value = _co2e(a.category, a.key, a.amount, db)
+                if co2_value is not None:
+                    total += co2_value
 
     return templates.TemplateResponse(request, "weekly.html",
         {"request": request, "users": users, "selected_user_id": user_id,
