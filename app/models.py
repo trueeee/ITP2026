@@ -21,7 +21,6 @@ class User(Base):
 
 
 class EmissionFactor(Base):
-    """En enkel faktor-tabell: (kategori, nyckel) -> CO2e per enhet."""
 
     __tablename__ = "emission_factors"
     __table_args__ = (
@@ -33,9 +32,8 @@ class EmissionFactor(Base):
     key: Mapped[str] = mapped_column(String(60), nullable=False)       # car/bus/train...
     unit: Mapped[str] = mapped_column(String(20), nullable=False)      # km/portion/kwh
     co2e_per_unit: Mapped[float] = mapped_column(Float, nullable=False)
-    source: Mapped[Optional[str]] = mapped_column(String(200), nullable=True)
-    source = Column(String, nullable=False, default="course_default")
-    scope: Mapped[Optional[str]] = mapped_column(String(20), nullable=True, default=None)
+    source: Mapped[Optional[str]] = mapped_column(String(200), nullable=False, default="course_default")
+    scope: Mapped[Optional[str]] = mapped_column(String(20), nullable=True)
 
 
 class Activity(Base):
